@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=device-width">
+    <!--meta改變視角-->
+    <title>rwd-media screen all min</title>
+    <style>
+
+        /*分界點或分段點 EX 1024是桌機  480是手機*/
+         @media screen and (max-width:480px){
+            /*裝置的判斷  and 和 ()之間一定要有空格*/
+            /*如果要全min第一個不是min0就是max480*/
+            body{
+                background-color: skyblue;
+            }
+        }
+         @media screen and (min-width:480px){
+            body{
+                background-color: greenyellow;
+            }
+        }
+        
+        @media screen and (min-width:700px){
+            body{
+                background-color: orange;
+            }
+             
+        }
+        @media screen and (min-width:1200px){
+                           
+            body{
+                background-color: pink;
+            }
+            
+        }
+        /*也可全用min 由小寫到大 不會有and的問題*/
+    </style>
+</head>
+<body>
+
+</body>
+</html>

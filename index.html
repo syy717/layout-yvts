@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>寫版型轉RWD</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--先寫版型再轉成RWD-->
+    <style>
+        /*那些東西會先用到?*/
+        *{
+            font-family: 'Roboto';
+            box-sizing: border-box;
+            /*設定這個不會影響下面的margin and padding*/
+        }
+        
+        body.h1,h2,h3,h4,h5,h6,p {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .clearfix::after {
+            /*解決浮動問題*/
+            content: "";
+            /*空字串 存在但看不到*/
+            display: block;
+            clear: both;
+        }
+        
+        .full-width {
+            width: 100%;
+        }
+        
+        .fixed-width {
+            width: 1200px;
+            margin: auto;
+        }
+        
+        .col-3{
+            float: left;
+            /*都是水平一定有浮動*/
+            width: 380px;
+            margin-left: 10px;
+            margin-right: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        .col-4{
+            float: left;
+            width: 280px;
+            margin-left: 10px;
+            margin-right: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+            
+        }
+        
+        
+        
+        /*最外層放名稱會比較好找*/
+        nav {
+            height: 45px;
+            background-color: black;
+        }
+        nav .logo {
+            float: left;
+            color: aliceblue;
+            line-height: 45px;    
+        }
+        nav .menu {
+            float: right;
+        }
+        nav .menu ul {
+            margin: 0;
+            padding: 0;
+        }
+        nav .menu li {
+            float: left;
+            list-style: none;
+        }
+        nav .menu a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            line-height: 45px;
+            padding-left: 15px;
+            padding-right: 15px;
+            font-size: 14px;
+            transition: all .3s;
+        }
+        nav .menu a:hover {
+            background-color: #555;
+        }
+        header {
+            height: 750px;
+            background-image: url(vg.jpg);
+            background-repeat: no-repeat;
+            background-attachment:fixed;
+            background-size: cover;
+            
+            display: table;    
+        }
+        header .overlay {
+            height: 750px;
+            background-color:  rgba(0,0,0,.4);
+            
+            display:table-cell;
+            vertical-align: middle;
+            /*design中間自己的位置置中*/
+        }
+        header .content {
+            color: aliceblue;
+            /*width: 400px;*/
+            margin: auto;
+            text-align: center;
+        }
+        header .content h1 {
+            font-size: 120px;
+        }
+        header .content a {
+            display: inline-block;
+            width: 160px;
+            color: #fff;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            background-color: #ff004e;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+        #about {
+            padding-top: 100px;
+            padding-bottom: 100px;
+            text-align: center;
+            
+        }
+        #about h2 {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        #about .col-3{
+            padding-top: 70px;
+        }
+        #about .col-3 h3{
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+        #about .col-3 p {
+            line-height: 2em;
+            /*降低內文透明度*/
+            opacity: .6;
+        }
+        .icon {
+            color:palevioletred;
+            /*改icon顏色當成文字改 用icon控制span*/
+        }
+        #works {
+            padding-top: 100px;
+            padding-bottom: 100px;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            
+        }
+        #works .col-3{ 
+            height: 380px;
+            background-color: #00f8d2;    
+        }
+       /*#works h2 {
+            padding-top: 10px;
+            padding-bottom: 10px; 
+        }
+        */
+        #works p {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+        #service {
+            padding-top: 100px;
+            padding-bottom: 100px;
+            background-color: white;
+            color: black;
+            text-align: center;
+            
+        }
+        #service .col-4{ 
+            height: 380px;
+            background-color: gainsboro;    
+        }
+       /*#works h2 {
+            padding-top: 10px;
+            padding-bottom: 10px; 
+        }
+        */
+        #service p {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--選單 nav logo menu*/-->
+    <nav class="full-width">
+       <!-- <div id=nav>-->
+        <div class="fixed-width">
+            <div class="logo">LOGO</div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Works</a></li>
+                    <li><a href="#">Service</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="full-width">
+      <div class="overlay">
+       <div class="content">
+           <h1>VAN GOGH</h1>
+           <p>
+               	
+           Van Gogh was unsuccessful during his lifetime, and was considered a madman and a failure. He became famous after his suicide, and exists in the public imagination as the quintessential misunderstood genius, the artist "where discourses on madness and creativity converge".  
+           <br> 
+           His reputation began to grow in the early 20th century as elements of his painting style came to be incorporated by the Fauves and German Expressionists. He attained widespread critical, commercial and popular success over the ensuing decades, and is remembered as an important but tragic painter, whose troubled personality typifies the romantic ideal of the tortured artist.
+           
+           </p>
+            <a href="#">GET STSRTED</a>
+       </div>    
+       </div>
+    </header>
+    <!--最外層名稱用about-->
+    <div id="about" class="full-width clearfix">
+        <div class="fixed-width "><!--清除浮動-->
+           <h2>ABOUT US</h2>
+           <p>
+               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere in, debitis illo quas magni dolorum error, blanditiis quasi enim molestiae labore eaque accusamus quod natus. 
+           </p>
+            <div class="col-3">
+               <div class="icon"><span class="fa fa-snowflake-o fa-5x"></span></div>
+                <h3>First</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum eaque quod modi nisi iusto dignissimos facere, adipisci nulla nesciunt fugit voluptates distinctio ipsam, itaque placeat pariatur doloribus corporis blanditiis natus?</p>
+            </div>
+            <div class="col-3">
+               <div class="icon"><span class="fa fa-camera fa-5x"></span></div>
+                <h3>Second</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum eaque quod modi nisi iusto dignissimos facere, adipisci nulla nesciunt fugit voluptates distinctio ipsam, itaque placeat pariatur doloribus corporis blanditiis natus?</p>
+            </div>
+            <div class="col-3">
+               <div class="icon"><span class="fa fa-flag fa-5x"></span></div>
+                <h3>Third</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum eaque quod modi nisi iusto dignissimos facere, adipisci nulla nesciunt fugit voluptates distinctio ipsam, itaque placeat pariatur doloribus corporis blanditiis natus?</p>
+            </div>
+        </div>
+    </div>
+   
+       <div id="works" class="full-width clearfix">
+       <div class="fixed-width">
+           <h2>WORKS</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, recusandae voluptates cumque illum possimus quia at unde ut tenetur culpa perferendis optio assumenda fuga similique animi, soluta sapiente. Perferendis, quidem!
+            </p>
+            <div class="col-3">
+                <img src="" alt="">
+            </div>
+            <div class="col-3">
+                <img src="" alt="">
+            </div>
+            <div class="col-3">
+                <img src="" alt="">
+            </div>
+       </div>
+        
+    </div>
+     <div id="service" class="full-width clearfix">
+       <div class="fixed-width">
+           <h2>SERVICE</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+            </p>
+            <div class="col-4">
+               <div class="gallery"> <img src="1.jpg" alt=""></div>
+                <h4>FIRST</h4>
+                <div>one</div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                </p>
+                <div class="social">
+                    <a href="#"class="fa fa-facebook fa-lg"></a>
+                    <a href="#"class="fa fa-instagram fa-lg"></a>
+                    <a href="#"class="fa fa-twitter fa-lg"></a>
+                    <a href="#"class="fa fa-github fa-lg"></a>
+                </div>
+           </div>
+            <div class="col-4">
+               <div class="gallery"> <img src="2.jpg" alt=""></div>
+                <h4>Second</h4>
+                <div>two</div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                </p>
+                <div class="social">
+                    <a href="#"class="fa fa-facebook fa-lg"></a>
+                    <a href="#"class="fa fa-instagram fa-lg"></a>
+                    <a href="#"class="fa fa-twitter fa-lg"></a>
+                    <a href="#"class="fa fa-github fa-lg"></a>
+                </div>
+           </div>
+            <div class="col-4">
+               <div class="gallery"> <img src="3.jpg" alt=""></div>
+                <h4>Third</h4>
+                <div>three</div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </p>
+                <div class="social">
+                    <a href="#"class="fa fa-facebook fa-lg"></a>
+                    <a href="#"class="fa fa-instagram fa-lg"></a>
+                    <a href="#"class="fa fa-twitter fa-lg"></a>
+                    <a href="#"class="fa fa-github fa-lg"></a>
+                </div>
+                </div>
+            <div class="col-4">
+               <div class="gallery"> <img src="4.jpg" alt=""></div>
+                <h4>Forth</h4>
+                <div>four</div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                </p>
+                <div class="social">
+                    <a href="#"class="fa fa-facebook fa-lg"></a>
+                    <a href="#"class="fa fa-instagram fa-lg"></a>
+                    <a href="#"class="fa fa-twitter fa-lg"></a>
+                    <a href="#"class="fa fa-github fa-lg"></a>
+                </div>
+           </div>
+         </div>
+ 
+    </div>    
+
+</body>
+</html>
